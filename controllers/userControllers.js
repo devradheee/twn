@@ -39,13 +39,13 @@ const sendVerifyMail = async (name, email, id) => {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "surajjbhardwaj@gmail.com",
+        user: "radheshyam33523@gmail.com",
         pass: process.env.pass,
       },
     });
     console.log(process.env.pass);
     const mailOption = {
-      from: "surajjbhardwaj@gmail.com",
+      from: "radheshyam33523@gmail.com",
       to: email,
       subject: "for verification mail",
       html:
@@ -69,60 +69,60 @@ const sendVerifyMail = async (name, email, id) => {
 
 
 
-const contactMail = async (req , res) => {
+const contactMail = async (req, res) => {
 
-  const name =req.body.namee;
-  const email=  req.body.email;
+  const name = req.body.namee;
+  const email = req.body.email;
   const Subject = req.body.subject;
   const messege = req.body.messege;
 
-  console.log('name is '+ name + "from "+email+" regarding "+ Subject+" "+messege);
-  const admins = ["pandeyyysuraj@gmail.com" , "jyotikumari4442@gmail.com"]
+  console.log('name is ' + name + "from " + email + " regarding " + Subject + " " + messege);
+  const admins = ["pandeyyysuraj@gmail.com", "jyotikumari4442@gmail.com"]
 
 
-   try {
+  try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
       secure: false,
       requireTLS: true,
       auth: {
-        user: "surajjbhardwaj@gmail.com",
+        user: "radheshyam33523@gmail.com",
         pass: process.env.pass,
       },
     });
     console.log(process.env.pass);
-    
+
 
     const mailOption = {
-      from: "surajjbhardwaj@gmail.com",
+      from: "radheshyam33523@gmail.com",
       to: "pandeyyysuraj@gmail.com , jyotikumari4442@gmail.com",
-      subject: "Contact support for "+ Subject,
-      html:`
+      subject: "Contact support for " + Subject,
+      html: `
           <h2>Dear admin</h2><p> You're recieving this email to solve an issue of <b> ${name} </b> and ${email} ,<br/> He is facing issue regarding ${Subject} </p>
           <b>Discription of issues : </b> <br>
           <p>  ${messege} </p>
           <p>regards</p>
           <a href="https://townofbook.onrender.com" ><p>TOWN OF BOOK</p></a>
       `
-       ,
+      ,
     };
-  
+
 
     transporter.sendMail(mailOption, function (error, info) {
       if (error) console.log(error);
       else {
         console.log("email recieved ", info.response);
-       res.send(`<script>
+        res.send(`<script>
        alert("Thanks for your messege");
        window.location.href = "/";
      </script>`)
       }
     });
-   } catch (error) {
+  } catch (error) {
     res.status(404).send();
-   }
-   
+  }
+
 };
 
 
@@ -145,12 +145,12 @@ const insertUser = async (req, res) => {
     console.log("working");
 
     const em = req.body.email;
-    const dub = await RejisterData.find({email:em});
+    const dub = await RejisterData.find({ email: em });
     const ph = req.body.mobile;
-    const dub1 = await RejisterData.find({mobile:ph})
+    const dub1 = await RejisterData.find({ mobile: ph })
     console.log(em);
-     
-    if(dub.length>1 || dub1.length>1){
+
+    if (dub.length > 1 || dub1.length > 1) {
       console.log(dub);
       console.log(dub1);
       res.status(200);
@@ -161,46 +161,46 @@ const insertUser = async (req, res) => {
       </script>`)
     }
 
-    else{
+    else {
 
-    const user = new RejisterData({
-      name: req.body.name,
-      mobile: req.body.mobile,
-      email: req.body.email,
-      // hasshed password
-      password: spassword,
-      image: {
-        data:req.file.buffer,
-        contentType: req.file.mimetype
-      },
-      is_admin: 0,
-    });
+      const user = new RejisterData({
+        name: req.body.name,
+        mobile: req.body.mobile,
+        email: req.body.email,
+        // hasshed password
+        password: spassword,
+        image: {
+          data: req.file.buffer,
+          contentType: req.file.mimetype
+        },
+        is_admin: 0,
+      });
 
-    // console.log("user ", user);
-    const saveddata = user.save();
+      // console.log("user ", user);
+      const saveddata = user.save();
 
-    if (saveddata) {
-      console.log("daata saved in mongodb");
-      // nodemailer works to verify
-      sendVerifyMail(req.body.name, req.body.email, (await saveddata)._id);
+      if (saveddata) {
+        console.log("daata saved in mongodb");
+        // nodemailer works to verify
+        sendVerifyMail(req.body.name, req.body.email, (await saveddata)._id);
 
-      // if we wants to send the json
-      //   res.send((await saveddata).toJSON());
-      res.status(200);
-      res.send(`<script>
+        // if we wants to send the json
+        //   res.send((await saveddata).toJSON());
+        res.status(200);
+        res.send(`<script>
       alert("Registration successful!");
       window.location.href = "/login";
     </script>`);
-      // res.redirect("/login");
-    } else {
-      console.log("not saving data");
-      res.status(400);
-      res.send(`<script>
+        // res.redirect("/login");
+      } else {
+        console.log("not saving data");
+        res.status(400);
+        res.send(`<script>
       alert("something gone wrong! try again");
       window.location.href = "/rejister";
     </script>`);
+      }
     }
-  }
 
   } catch (error) {
     console.log(error);
@@ -211,21 +211,21 @@ const insertUser = async (req, res) => {
   }
 };
 
-const showing = async(req,res)=>{
+const showing = async (req, res) => {
 
-try {
-  
-  const id = req.session.user_id;
-  const users = await RejisterData.findOne({_id:id});
+  try {
 
-  console.log(users.name);
-  res.render("bufferimage",{user:users});
-      
-} catch (error) {
-  
-  console.log("error");
+    const id = req.session.user_id;
+    const users = await RejisterData.findOne({ _id: id });
 
-} 
+    console.log(users.name);
+    res.render("bufferimage", { user: users });
+
+  } catch (error) {
+
+    console.log("error");
+
+  }
 
 
 
@@ -250,13 +250,13 @@ const updateuser = async (req, res) => {
       mobile: mobile
     };
 
-   
-      if (req.file) {
-        updatedUser.image={
-            data: req.file.buffer,
-            contentType: req.file.mimetype
-        };
-      }
+
+    if (req.file) {
+      updatedUser.image = {
+        data: req.file.buffer,
+        contentType: req.file.mimetype
+      };
+    }
 
     const user = await RejisterData.findByIdAndUpdate(id, updatedUser);
 
@@ -271,7 +271,7 @@ const updateuser = async (req, res) => {
     }
   } catch (error) {
     console.error(error);
-    res.status(500).send( `<script>alert("User not updated, please try again \n internal server error "); window.location.href="/image"</script>`);
+    res.status(500).send(`<script>alert("User not updated, please try again \n internal server error "); window.location.href="/image"</script>`);
   }
 };
 
@@ -319,18 +319,18 @@ const verifylogin = async (req, res) => {
         //   res.redirect("/home");
 
         // for home  without verification
-          req.session.user_id = userdata._id;
-          res.status(200);
-         return res.redirect("/home");
-        
+        req.session.user_id = userdata._id;
+        res.status(200);
+        return res.redirect("/home");
+
       } else {
         res.status(200);
         console.log("wrong password or email");
         res.redirect("loginerr");
       }
     } else {
-        res.status(200);
-        console.log("wrong password or email 91");
+      res.status(200);
+      console.log("wrong password or email 91");
       res.redirect("loginerr");
     }
   } catch (error) {
@@ -346,17 +346,17 @@ const messages = {
 
 
 // for login error
-const loginerr = async (req,res)=>{
-   try {
-    
-    res.status(200);
-    res.render("login",{messages: messages},);
+const loginerr = async (req, res) => {
+  try {
 
-   } catch (error) {
+    res.status(200);
+    res.render("login", { messages: messages },);
+
+  } catch (error) {
     res.status(400);
     console.log(error);
     console.log("error at 178 usercontroller");
-   }
+  }
 
 }
 
@@ -381,13 +381,13 @@ const sendForgetMail = async (name, email, id) => {
       secure: false,
       requireTLS: true,
       auth: {
-        user: "surajjbhardwaj@gmail.com",
+        user: "radheshyam33523@gmail.com",
         pass: process.env.pass,
       },
     });
     console.log(process.env.pass);
     const mailOption = {
-      from: "surajjbhardwaj@gmail.com",
+      from: "radheshyam33523@gmail.com",
       to: email,
       subject: "Password reset mail",
       html:
@@ -412,11 +412,11 @@ const sendForgetMail = async (name, email, id) => {
 
 
 // forget password
-const forgetPassword = async (req,res) => {
+const forgetPassword = async (req, res) => {
 
   const id = req.session.user_id;
-  const user = await RejisterData.findOne({_id:id});
-  res.render("forget",{user:user});
+  const user = await RejisterData.findOne({ _id: id });
+  res.render("forget", { user: user });
 }
 
 const sendResetPasswordEmail = async (req, res) => {
@@ -424,7 +424,7 @@ const sendResetPasswordEmail = async (req, res) => {
   try {
     const user = await RejisterData.findOne({ email: email }); // Use findOne instead of find to retrieve a single document
     const token = randomString.generate();
-    const us = await RejisterData.updateOne({email:email},{$set:{token:token}})
+    const us = await RejisterData.updateOne({ email: email }, { $set: { token: token } })
 
 
     if (user) { // Check if user exists (findOne will return null if no user found)
@@ -458,10 +458,10 @@ const sendResetPasswordEmail = async (req, res) => {
 const resetPassword = async (req, res) => {
   try {
     const token = req.query.id;
-    const user = await RejisterData.findOne({token:token});
+    const user = await RejisterData.findOne({ token: token });
     res.status(200);
-    console.log("here is the tokken",token);
-    res.render("resetPassword", {token:token,user:user});
+    console.log("here is the tokken", token);
+    res.render("resetPassword", { token: token, user: user });
     console.log("in the last stage");
   } catch (error) {
     console.log(error);
@@ -542,96 +542,96 @@ const changePassword = async (req, res) => {
 
 //for load home
 const loadhome = async (req, res) => {
-    res.status(200);
-    const id = req.session.user_id;
-    const user = await RejisterData.findOne({_id:id});
-    // console.log(user);
-  res.render("home",{user:user});
+  res.status(200);
+  const id = req.session.user_id;
+  const user = await RejisterData.findOne({ _id: id });
+  // console.log(user);
+  res.render("home", { user: user });
   console.log("successfully logined");
 };
 
 // for logout
-const logout = async (req,res)=>{
-   
-    try {
-        
-        req.session.destroy();
-        res.redirect("/login");
+const logout = async (req, res) => {
 
-    } catch (error) {
-        console.log("error at logout",error);
-    }
+  try {
+
+    req.session.destroy();
+    res.redirect("/login");
+
+  } catch (error) {
+    console.log("error at logout", error);
+  }
 
 }
 
 // for contact load
-const loadContact = async(req,res)=>{
-    try {
-      res.status(200);
-      const id = req.session.user_id;
-      const user = await RejisterData.findOne({ _id: id });
-      
-      if (user) {
-        res.render("contact",{user:user});
-      }
-      else {
-        res.render("contact");
-      }
-    } catch (error) {
-        console.log("error is ",error);
+const loadContact = async (req, res) => {
+  try {
+    res.status(200);
+    const id = req.session.user_id;
+    const user = await RejisterData.findOne({ _id: id });
+
+    if (user) {
+      res.render("contact", { user: user });
     }
+    else {
+      res.render("contact");
+    }
+  } catch (error) {
+    console.log("error is ", error);
+  }
 }
 
 //for view load
 
-const loadview = async(req,res)=>{
-    try {
-      res.status(200);
-      const id = req.session.user_id;
-      const user = await RejisterData.findOne({_id:id});
-      console.log(user);
-    res.render("view",{user:user});
-    } catch (error) {
-        console.log("error is ",error);
-    }
+const loadview = async (req, res) => {
+  try {
+    res.status(200);
+    const id = req.session.user_id;
+    const user = await RejisterData.findOne({ _id: id });
+    console.log(user);
+    res.render("view", { user: user });
+  } catch (error) {
+    console.log("error is ", error);
+  }
 }
 
 // for book rent load
-const loadbookrentt = async(req,res)=>{
-    try {
-      res.status(200);
-      const id = req.session.user_id;
-      const user = await RejisterData.findOne({_id:id});
-      // console.log(user);
-    res.render("bookrentt",{user:user});
-    } catch (error) {
-        console.log("error is ",error);
-    }
+const loadbookrentt = async (req, res) => {
+  try {
+    res.status(200);
+    const id = req.session.user_id;
+    const user = await RejisterData.findOne({ _id: id });
+    // console.log(user);
+    res.render("bookrentt", { user: user });
+  } catch (error) {
+    console.log("error is ", error);
+  }
 }
 
 // faltu ka peace
-const  loadnewbook = async (req,res)=>{
+const loadnewbook = async (req, res) => {
 
-     try {
-      res.render("product");
-     } catch (error) {
-        res.status(400);
-      console.log("error here ",error);
-     }
+  try {
+    res.render("product");
+  } catch (error) {
+    res.status(400);
+    console.log("error here ", error);
+  }
 
 
-}  
+}
 
 const loadTeam = async (req, res) => {
   try {
 
 
     console.log(req.session.id);
-   
-      const id = req.session.user_id;
-      const user = await RejisterData.findOne({ _id: id });
-    
-    
+
+    const id = req.session.user_id;
+    const user = await RejisterData.findOne({ _id: id });
+
+
     if (user) {
       console.log(`it ss working ${user}`);
       res.render("team", { user: user });
@@ -640,7 +640,7 @@ const loadTeam = async (req, res) => {
     else {
       console.log("it is not working");
       res.render("team");
-      
+
     }
   } catch (error) {
     console.log("error at team page ", error);

@@ -7,7 +7,7 @@ const ejs=require("ejs");
 
 //dot env file equipment
 require("dotenv").config();
-const PORT= process.env.PORT || 5001;
+const PORT= process.env.PORT || 5005;
 console.log("URI is : ",process.env.URI);
 
 
