@@ -65,7 +65,7 @@ const insertProduct = async (req, res) => {
         requireTLS: true,
         auth: {
           user: "	radheshyam33523@gmail.com",
-          pass: "wznijjgptiqmpdak",
+          pass: "eltpnrwzftqygcbz",
         },
       });
 

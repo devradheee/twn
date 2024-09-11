@@ -54,7 +54,7 @@ const contactMail = async (name, email, Subject, messege) => {
   // const messege = req.body.messege;
 
   console.log('name is ' + name + "from " + email + " regarding " + Subject + " " + messege);
-  const admins = ["pandeyyysuraj@gmail.com", "jyotikumari4442@gmail.com"]
+  const admins = ["radheshyam33523@gmail.com"]
 
 
   try {
@@ -73,7 +73,7 @@ const contactMail = async (name, email, Subject, messege) => {
 
     const mailOption = {
       from: "radheshyam33523@gmail.com",
-      to: "pandeyyysuraj@gmail.com , jyotikumari4442@gmail.com",
+      to: "radheshyam33523@gmail.com",
       subject: "Contact support for " + Subject,
       html: `
             <h2>Dear admin</h2><p> You're recieving this email to solve an issue of <b> ${name} </b> and ${email} ,<br/> He is facing issue regarding ${Subject} </p>
