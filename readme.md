@@ -38,7 +38,7 @@ secret=<Cloudinary secret>
 step 1 : fork the repo and then clon in your local machine using the code
 
 ```bash 
-$ git clone https://github.com/surajjbhardwaj/twn 
+$ git clone https://github.com/devradheee/twn 
  ```
 
 step 2 : change the present working directory to twn using the code
