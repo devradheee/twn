@@ -1,0 +1,43 @@
+<%- include('../layouts/header1.ejs') %>
+
+<!-- products.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User and Product Data</title>
+</head>
+<body>
+ <h1>Product Data</h1>
+<% if (data.product && data.product.length > 0) { %>
+  <div class="product-container">
+    <% data.product.forEach(product => { %>
+      <div class="product">
+        <a href="/product/<%= product._id %>">click me</a>
+
+         <% if(typeof product.image.data!=='undefined') { %> 
+                    <img style="width: 500px; height: auto;"  src="data:<%= product.image.contentType %>;base64, <%= product.image.data.toString('base64') %> " alt="<%= product.bookName %>">
+                    <% } %> 
+
+        <!-- <img src="<%= product.image %>" alt="<%= product.bookName %>"> -->
+        <p>Name: <%= product.bookName %></p>
+        <p>Title: <%= product.tittle %></p>
+        <p>About: <%= product.about %></p>
+        <% console.log(product.bookName); %>
+      </div>
+    <% }); %>
+  </div>
+<% } else { %>
+  <p>No products found</p>
+<% } %>
+    </ul>
+</body>
+</html>
+
+
+
+
+
+<%- include('./footer.ejs') %>

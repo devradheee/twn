@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body{
+    background-color: black;  
+}
+
+.forgetPage{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+}
+svg{
+    height: 2rem;
+    width: 2rem;
+}
+.list-item{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: flex-start;
+     
+    }
+
+form {
+     
+     background-color: #343a3f;
+     padding: 40px;
+     border-radius: 10px;
+     
+     margin: 0 auto;
+     width: 40%;
+
+     @media (max-width: 800px) {
+       width: 80%;
+       padding: 5%;
+       margin: 0 1.2rem;
+       background-color: #343a3f9b;
+     }
+   }
+
+   
+    input[type="email"]{
+      font-size: 18px;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 6px;
+      border: none;
+      color: #28b485;
+      border-bottom: 2px solid #484b4a69;
+      background-color: transparent;
+      @media (max-width: 800px) {
+        font-size: 1.6vh;
+        margin-bottom: 2px;
+      }
+    }
+
+    input[type="email"]:focus
+     {
+      outline: none;
+      background-color: transparent;
+      border-bottom: 2px solid #30b88a69;
+    }
+
+  
+
+    /* for placeholders */
+    ::-webkit-input-placeholder {
+      color: #28b48569;
+    }
+
+    :-moz-placeholder {
+      color: #28b485;
+    }
+
+    ::-moz-placeholder {
+      color: #28b485;
+    }
+
+    :-ms-input-placeholder {
+      color: #28b485;
+    }
+
+    .button {
+        margin-top: 4rem;
+      background-color: #28b485;
+      color: white;
+      padding: 10px 40px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      border: none;
+    
+      margin-left: 80%;
+      @media (max-width: 800px) {
+        margin-left: 0%;
+        font-size: 1.5vh;
+        padding: 5px 10px;
+        width: 100%;
+      }
+    }
+
+    .button:hover {
+      background-color: #28b485;
+    }
+
+   .header {
+      font-size: 60px;
+      font-weight: bold;
+      font-family:Arial, Helvetica, sans-serif;
+      text-align: center;
+      color: #28b485;
+     
+      @media (max-width: 800px) {
+        font-size: 5vh;
+        margin-bottom: 10px;
+      }
+    }
+
+</style>
+<body>
+    <section class="forgetPage">
+        <h2 class="header">Forget Passward</h2>
+        <form action="/forget" method="POST" style="text-align: left;" >
+            <div class="list-item">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28b485" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                    <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+                  </svg>
+                <input type="email" required placeholder="email" name="email">
+            </div>
+
+            <input class="button" type="submit" placeholder="submit">
+        </form>
+        </section> 
+</body>
+</html>

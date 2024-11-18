@@ -1,0 +1,199 @@
+
+<%- include('../layouts/header1.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+body {
+  font-family: Arial, sans-serif;
+  
+  text-align: center;
+    background-color: black;
+}
+.addbook{
+   min-height: max-content;
+   width: 100vw;
+}
+
+form {
+  background-color: #343A3F;
+  padding: 40px;
+  border-radius: 10px;
+  /* box-shadow: 0 0 30px green; */
+  margin: 0 auto;
+  width: 500px;
+  margin-bottom: 4rem;
+
+  @media(max-width: 800px){
+    width: 90%;
+    padding: 5%;
+    margin: 0 1.2rem;
+    background-color: #343A3F;
+    margin-bottom: 2rem;
+    /* background-color: transparent; */
+  }
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+
+  @media(max-width: 800px){
+    font-size: 2vh;
+    margin-bottom: 10px;
+  }
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 2px;
+  background-color: transparent;
+  @media(max-width: 800px){
+    font-size: 2vh;
+    margin-bottom: 1px;
+  }
+}
+input[type="text"], input[type="file"] {
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 6px;
+  border: none;
+  color: #28b485;
+  border-bottom: 2px solid #484b4a69;
+   background-color: transparent;
+   @media(max-width: 800px){
+    font-size: 1.6vh;
+    margin-bottom: 2px;
+  }
+}
+
+input[type="text"]:focus, input[type="file"]:focus {
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid #30b88a69;
+}
+
+input[type="file"]{
+  background-color: transparent;
+  color: #3e8e41;
+}
+
+/* for placeholders */
+::-webkit-input-placeholder {
+    color: #28b48569;
+}
+
+:-moz-placeholder {
+    color: #28b485;
+}
+
+::-moz-placeholder {
+   color: #28b485;
+}
+
+:-ms-input-placeholder {
+    color: #28b485;
+}
+
+
+
+button[type="submit"] {
+  background-color: #28b485;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  border: none;
+  @media(max-width: 800px){
+    font-size: 1.5vh;
+    padding: 5px 10px;
+    width: 100%;
+   
+  }
+}
+
+button[type="submit"]:hover {
+  background-color: #28b485;
+}
+
+
+
+
+.header{
+   font-size: 48px;
+  font-weight: bold;
+  font-family:poppins;
+  text-align: center;
+  color: #28b485;
+  margin-top: 10px;
+  @media(max-width: 800px){
+    font-size: 3vh;
+    margin-bottom: 10px;
+  }
+  
+}
+
+
+</style>
+<body>
+    
+
+<section class="addbook" >
+
+    <form style="margin-top: 5%; " action="/appendbook" method="post" enctype="multipart/form-data">
+        <h1 class="header">Add Books</h1><br>
+        <div>
+      
+          <input type="text" id="bookName" name="bookName" placeholder="Bookname">
+      
+          <br><br>
+      
+          <input type="text" id="title" name="tit" placeholder="Tittle">
+      
+          <br><br>
+      
+          <input type="text" id="about" name="about" placeholder="About">
+      
+          <br><br>
+      
+          <input type="text" id="authorName" name="authorName" placeholder="Author Name">
+          <br><br>
+      
+          <input type="text" id="price" name="rentPrice" placeholder="Rent Price">
+      
+          <br><br>
+      
+          <input type="text" id="price" name="location" placeholder="Location">
+      
+          <br><br>
+          <input type="file" name="mainImage" id="image" class="bg-dark">
+          <br><br>
+      
+          <button type="submit"> upload</button>
+      
+        </div>
+      </form>
+
+
+</section>
+   
+
+
+</body>
+</html>
+
+
+<%- include('footer'); -%>
+

@@ -1,0 +1,141 @@
+.mainHeader {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.first {
+  background: #f0f4fc;
+}
+.second{
+  padding: 40px;
+  width: 300px;
+  /* position: relative; */
+  position: absolute;
+  margin-top: 6rem;
+  left:800px;
+  top: 0px;
+  border: 2px solid #0053f8;
+  margin-bottom: 8rem;
+}
+.firstMain {
+  /* height: 100vh; */
+  padding: 0;
+  margin: 0 ;
+}
+.mainText {
+  margin-top: 141px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  color: #203765;
+}
+.secText {
+  margin-top: 26px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+
+  text-align: center;
+
+  color: rgba(32, 55, 101, 0.8);
+}
+.mainImage {
+  width: 60%;
+  height: auto;
+  height: 35rem;
+  padding: 5rem;
+  margin-top: -5rem;
+}
+.imagew{
+  width: 40vw;
+  height: 80vh;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+.inputContainer {
+  width: 50%;
+}
+.signinText {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 125%;
+  color: #29375f;
+}
+.username,
+.password,
+.mobile,
+.email,
+.slect,
+.btnClick {
+  height: 45px;
+  padding: px;
+  padding-left: 1rem;
+  border: none;
+  background: #ffffff;
+  border: 1px solid rgba(192, 206, 255, 0.7);
+  width: 294px;
+  height: 44px;
+  border-radius: 6px;
+  position:relative;
+ 
+}
+.username,
+.email,
+.password,
+.mobile {
+  margin-top: 25px;
+}
+
+.image{
+  height: 25px;
+  padding-left: 0px;
+  border: none;
+  background: #ffffff;
+  border: 1px solid rgba(192, 206, 255, 0.7);
+  width: 5rem;
+  height: 20px;
+  border-radius: 6px;
+  margin-top: 35px;
+  
+}
+
+.btnClick {
+  margin-top: 15px;
+}
+.slect {
+  margin-top: 30px;
+  padding: 1px;
+  padding-left: 1rem;
+  background: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.btnClick {
+  background: #fc6964;
+  border-radius: 12px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  border: none;
+  color: #ffffff;
+}
+
+.slect::-ms-expand {
+  display: none;
+}
+
+.slect:focus:invalid {
+  border-color: #fd6347;
+}
+
+.slect:required:valid {
+  border-color: #006400;
+}
+  
+ 
