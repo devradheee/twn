@@ -1,0 +1,296 @@
+<%- include('../layouts/header1.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+  </head>
+
+  <style>
+
+    .profilepage {
+        background-color: black;
+        height: max-content;
+        width: 100vw;
+       padding:10%  4vw;
+       padding-top: 4%;
+       padding-bottom: 12%;
+       grid-template-columns: repeat(auto-fit, minmax(25rem , 1fr));
+      
+       grid-gap:8vw;
+
+       @media (max-width: 700px) {
+        display: block;
+     
+       }
+      
+    }
+
+    .list-item{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: flex-start;
+     
+    }
+
+    svg{
+      margin-top: -1rem;
+      height: 2rem;
+      width: 2rem;
+    }
+
+    form {
+     
+      background-color: #343a3f;
+      padding: 40px;
+      border-radius: 10px;
+      
+      margin: 0 auto;
+      width: 60%;
+
+      @media (max-width: 800px) {
+        
+        width: 90%;
+        padding: 5%;
+        margin: 0 1.2rem;
+        margin-top: 10%;
+        background-color: #343a3f9b;
+      }
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+
+      @media (max-width: 800px) {
+        font-size: 2vh;
+        margin-bottom: 10px;
+      }
+    }
+
+    label {
+      text-align: left;
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 2px;
+      color: #28b485b3;
+      background-color: transparent;
+      @media (max-width: 800px) {
+        font-size: 2vh;
+        white-space: nowrap;
+        margin-bottom: 1px;
+      }
+    }
+    input[type="text"]{
+      font-size: 18px;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 6px;
+      border: none;
+      color: #3e7b67;
+      border-bottom: 2px solid #484b4a69;
+      background-color: transparent;
+      @media (max-width: 800px) {
+        font-size: 1.6vh;
+        margin-bottom: 2px;
+      }
+    }
+
+    input[type="text"]:focus
+     {
+      outline: none;
+      background-color: transparent;
+      border-bottom: 2px solid #30b88a69;
+    }
+
+  
+
+    /* for placeholders */
+    ::-webkit-input-placeholder {
+      color: #28b48569;
+    }
+
+    :-moz-placeholder {
+      color: #28b485;
+    }
+
+    ::-moz-placeholder {
+      color: #28b485;
+    }
+
+    :-ms-input-placeholder {
+      color: #28b485;
+    }
+
+    .button {
+      background-color: #28b485;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      border: none;
+      width: 100%;
+      @media (max-width: 800px) {
+        font-size: 1.5vh;
+        padding: 5px 10px;
+        width: 100%;
+        
+        margin-bottom: 1rem;
+      }
+    }
+
+    .button:hover {
+      background-color: #28b485;
+    }
+
+    .header {
+      font-size: 60px;
+      /* font-weight: bold; */
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      color: #28b485;
+      margin-bottom:1.5rem;
+      text-align: left;
+      @media (max-width: 800px) {
+        font-size: 4vh;
+        margin-bottom: 10px;
+        
+      }
+    }
+
+    .text {
+      font-size: 20px;
+      font-weight: light;
+      font-family: poppins;
+      color: #ffffff98;
+      text-align: left;
+     
+    }
+
+    .desc{
+      padding: 2% 5%;
+    }
+
+    .profileImg{
+        height: 13vw;
+        width: 13vw;
+        margin-bottom: 4rem;
+        overflow: hidden;
+        border-radius: 50%; 
+
+        @media(max-width: 800px){
+            height: 20vh;
+        width: 20vh;
+        }
+
+    }
+
+    img{
+       
+        width: 100%;
+        object-fit: cover;
+    }
+
+    
+  </style>
+  <body>
+    <section>
+       
+     <div class="profilepage">
+       
+
+        
+
+        <form style="align-items: left;text-align: left;" action="/updateuser" method="POST" enctype="multipart/form-data">
+            <div class="profileImg">
+                <% if(typeof user.image.data!=='undefined') { %> 
+                    <img  src="data:<%= user.image.contentType %>;base64, <%= user.image.data.toString('base64') %> " alt="image not found">
+                    <% } else { %>
+                        image not available
+                        <% } %> 
+            </div>
+            <h2 class="header">Profile update</h2>
+            <div class="list-item">
+               
+                <label for="name">Name:</label>
+                <input type="text" name="newname" value="<%= user.name %>">
+              
+            </div>
+
+            <div class="list-item">
+
+                <label for="mobile">Mobile No:</label>
+                <input type="text" name="mobile" value="<%= user.mobile %>">
+            </div>
+            <div class="list-item">
+
+            <label for="email">Email:</label>
+            <input type="text" name="newemail" value="<%= user.email %>">
+            </div>
+
+            <div class="list-item" style="margin-bottom: 2rem;">
+            <% if(typeof user.image.data!=='undefined') { %> 
+                <label for="image">Update Profile pic</label>
+            <input type="file" name="image" placeholder="update profile pic" accept="image/*"> <br>
+                <% } else { %>
+                    <label for="image">add Profile pic</label>
+                    <input type="file" name="image" placeholder="add Profile pic" accept="image/*" >
+                    <% } %> 
+           
+          <br>
+        </div>
+            <input class="button" type="submit" style="text-align: center;"  value="Submit">
+          
+        </form>
+      
+       
+     </div>
+    </section>
+ 
+  </body>
+  
+</html>
+ 
+<script>
+    let s = document.getElementById("loader");
+    window.addEventListener("load", () => {
+
+        s.style.display = "none";
+    })
+</script>
+
+<script src="/server.js"> </script>; 
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+<script src="/server.js" ; 
+
+
+ < script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
+<!-- <script src="js/bookren.js"></script> -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+
+

@@ -1,0 +1,167 @@
+<% if (typeof user !=='undefined' ) { %>
+  <%- include('../layouts/header1.ejs') %>
+    <% } else { %>
+      <%- include('../layouts/header.ejs') %>
+        <% } %>
+
+
+
+          <!DOCTYPE html>
+          <html lang="en">
+
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+              rel="stylesheet">
+            <title>Document</title>
+          </head>
+          <style>
+            .teampage {
+              height: calc(100vh - 18rem);
+              /* width: 100vw; */
+
+            }
+
+            .header {
+              font-size: 60px;
+              /* font-weight: bold; */
+              font-family: 'Poppins', sans-serif;
+              text-align: center;
+              color: #28b485;
+              /* margin-bottom:1.5rem; */
+              text-align: center;
+              margin-top: 4rem;
+
+              @media (max-width: 800px) {
+                font-size: 4vh;
+                margin-top: 2rem;
+                margin-bottom: 0;
+
+              }
+            }
+
+            .button {
+              background-color: #28b485;
+              color: white;
+              padding: 10px 20px;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 18px;
+              border: none;
+              width: 10rem;
+
+              @media (max-width: 800px) {
+                font-size: 1.5vh;
+                padding: 5px 10px;
+                width: 100%;
+
+                margin-bottom: 1rem;
+              }
+            }
+
+            .button:hover {
+              background-color: #28b485;
+            }
+
+            img {
+              height: 10vw;
+              width: 10vw;
+              border-radius: 50%;
+              object-fit: contain;
+
+              @media (max-width: 800px) {
+                height: 15vh;
+                width: 15vh;
+              }
+
+            }
+
+            .cards {
+              display: flex;
+              gap: 4vw;
+              min-height: 100%;
+              padding: 4% 8%;
+              padding-top: 2rem;
+
+              @media (max-width: 800px) {
+                flex-direction: column;
+                padding-top: 1rem;
+
+              }
+
+
+            }
+
+            .card {
+              padding: 2rem;
+              background-color: #343a3f;
+              height: max-content;
+            }
+
+            .name {
+              color: #28b485c8;
+              font-family: 'Poppins', sans-serif;
+              font-weight: 500;
+              margin: 1rem 0;
+            }
+
+
+            .text {
+              font-size: 16px;
+              font-weight: light;
+              font-family: poppins;
+              color: #ffffff5a;
+              text-align: left;
+
+              @media (max-width: 800px) {
+                font-size: 2vh;
+
+              }
+
+            }
+          </style>
+
+          <body>
+            <div class="teampage">
+              <div class="header"> Our Team </div>
+              <div class="cards">
+                <div class="card">
+                  <img src="Images/jyoti.jpg" alt="Suraj pic" />
+                  <div>
+                    <h4 class="name">Jyoti KM</h4>
+                    <p class="text">She excels in frontend design using React, creating responsive interfaces for mobile
+                      and desktop devices. Her expertise spans across crafting intuitive designs ensuring seamless
+                      experiences across various screen sizes and devices.
+                    </p>
+                  </div>
+                  <button class="button"
+                    onclick="window.location.href='https://in.linkedin.com/in/jyotikmr?trk=profile-badge'">Know
+                    more</button>
+                </div>
+
+                <div class="card">
+                  <img src="Images/suraj.jpg" alt="Suraj pic" />
+                  <div>
+                    <h4 class="name">Suraj Pandey</h4>
+                    <p class="text">He led backend development for Town of Book, handling user authentication, data
+                      storage, and form connectivity. His expertise ensured seamless user experiences, covering profile
+                      updates, password recovery, and form operations.
+                    </p>
+                  </div>
+                  <button class="button"
+                    onclick="window.location.href='https://in.linkedin.com/in/surajjbhardwaj?trk=profile-badge'">Know
+                    more</button>
+                </div>
+
+              </div>
+
+
+          </body>
+          <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+          <%- include('./footer.ejs'); -%>
+
+          </html>

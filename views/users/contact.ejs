@@ -1,0 +1,302 @@
+<% if (typeof user !== 'undefined') { %>
+    <%- include('../layouts/header1.ejs') %>
+<% } else { %>
+    <%- include('../layouts/header.ejs') %>
+<% } %>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+
+      text-align: center;
+      background-color: black;
+    }
+    .contactpage {
+      
+       display: grid;
+       padding:10%  4vw;
+       grid-template-columns: repeat(auto-fit, minmax(25rem , 1fr));
+      
+       grid-gap:8vw;
+
+       @media (max-width: 700px) {
+        display: block;
+       }
+      
+    }
+
+    .list-item{
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: flex-start;
+     
+    }
+
+    svg{
+      margin-top: -1rem;
+      height: 1.5rem;
+      width: 1.5rem;
+
+      @media (max-width: 800px) {
+        margin-top: -.5rem;
+      height: 1rem;
+      width: 1rem;
+      }
+    }
+
+    form {
+     
+      background-color: #343a3f;
+      padding: 40px;
+      border-radius: 10px;
+      
+      margin: 0 auto;
+      width: 100%;
+
+      @media (max-width: 800px) {
+        width: 90%;
+        padding: 5%;
+        margin: 0 1.2rem;
+        background-color: #343a3f9b;
+      }
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+
+      @media (max-width: 800px) {
+        font-size: 2vh;
+        margin-bottom: 10px;
+      }
+    }
+
+    label {
+      text-align: left;
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 2px;
+      background-color: transparent;
+      @media (max-width: 800px) {
+        font-size: 2vh;
+        margin-bottom: 1px;
+      }
+    }
+    input[type="text"]{
+      font-size: 18px;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 6px;
+      border: none;
+      color: #28b485;
+      border-bottom: 2px solid #484b4a69;
+      background-color: transparent;
+      @media (max-width: 800px) {
+        font-size: 1.6vh;
+        margin-bottom: 2px;
+      }
+    }
+
+    input[type="text"]:focus
+     {
+      outline: none;
+      background-color: transparent;
+      border-bottom: 2px solid #30b88a69;
+    }
+
+  
+
+    /* for placeholders */
+    ::-webkit-input-placeholder {
+      color: #28b48569;
+    }
+
+    :-moz-placeholder {
+      color: #28b485;
+    }
+
+    ::-moz-placeholder {
+      color: #28b485;
+    }
+
+    :-ms-input-placeholder {
+      color: #28b485;
+    }
+
+    .button {
+      background-color: #28b485;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      border: none;
+      width: 100%;
+      @media (max-width: 800px) {
+        font-size: 1.5vh;
+        padding: 5px 10px;
+        width: 100%;
+      }
+    }
+
+    .button:hover {
+      background-color: #28b485;
+    }
+
+    .header {
+      font-size: 60px;
+      font-weight: bold;
+      font-family: poppins;
+      text-align: center;
+      color: #28b485;
+      margin-top: 10px;
+      @media (max-width: 800px) {
+        font-size: 5vh;
+        margin-bottom: 10px;
+      }
+    }
+
+    .text {
+      font-size: 20px;
+      font-weight: light;
+      font-family: poppins;
+      color: #ffffff98;
+      text-align: left;
+
+      @media (max-width: 800px) {
+        font-size: 2vh;
+       
+      }
+     
+    }
+
+    .desc{
+      padding: 2% 5%;
+    }
+
+    
+  </style>
+  <body>
+    <section>
+     
+     <div class="contactpage">
+     
+      <div>
+        <h2 class="header">Contact us</h2>
+        <p class="text desc">
+          Do you have any questions? Please do not hesitate to contact us
+          directly. Our team will come back to you within a matter of hours to
+          help you.
+        </p>
+        <ul>
+          <li class="list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28b485" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+              <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
+            <p class="text">PTU, Jalandhar,punjab,india</p>
+          </li>
+
+          <li class="list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28b485" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+            </svg>
+            <p class="text">+91 7079533373</p>
+          </li>
+
+          <li class="list-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#28b485" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+            </svg>
+            <p class="text">pandeyyysuraj@gmail.com</p>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <form
+          id="contact-form"
+          name="contact-form"
+          action="/contact"
+          method="POST"
+        >
+          <div>
+            <!-- <label for="name" class=""  >Your name</label> -->
+            <input
+              type="text"
+              id="name"
+              name="namee"
+              placeholder="your name"
+             
+            />
+          </div>
+          <div>
+            <!-- <label for="email" class="">Your email</label> -->
+            <input
+              type="text"
+              id="email"
+              name="email"
+              placeholder="your email"
+              
+            />
+          </div>
+
+          <div>
+            <!-- <label for="subject" class="">Subject</label> -->
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="subject"
+              
+            />
+          </div>
+
+          <div>
+            <!-- <label for="message">Your message</label> -->
+            <input
+            placeholder="Message"
+              type="text"
+              id="message"
+              name="messege"
+              rows="2"
+            
+            ></input>
+          
+          </div>
+
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <button
+          type="submit"
+          class="button"
+            onclick="document.getElementById('contact-form').submit();"
+            >Send</button>
+        </form>
+
+        
+        
+          
+      
+      </div>
+     </div>
+    </section>
+  </body>
+</html>
+
+<%- include('footer'); -%>
