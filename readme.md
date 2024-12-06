@@ -22,7 +22,7 @@ pass : your smtp password of your email
 
 PORT = 5000
 URI=<Mongo URL>
-Secret = "1234suraj"
+Secret = "1234Devradheee"
 pass=<smtp password>
 CLOUDINARY_URL=<>
 CLOUDINARY_KEY=
